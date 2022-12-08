@@ -53,3 +53,54 @@ Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 
 ## Answer
 
+### Answer of exercice 4
+##### Question 1
+
+| Case                                | Input         | Output    |  
+| -------------                       |:-------------:|:---------:|
+| **nextDate()**                          |               |           |
+| Fin d'année                         | 31/12/2010    | 01/01/2011|
+| Fin du mois                         | 31/08/2010    | 01/09/2010|
+| Fin d'une journée                   | 13/12/2010    | 14/12/2011|
+| Fin du mois de février non bisextile| 28/02/2010    | 01/03/2010|
+| Fin du mois de février bisextile    | 29/02/2010    | 01/03/2010|
+| **previousDate()**                      |               |           |
+| Début d'année                       | 01/01/2011    | 31/12/2010|
+| Début du mois                       | 01/09/2010    | 31/08/2010|
+| Début d'une journée                 | 14/12/2011    | 13/12/2010|
+| Début du mois de mars non bisextile | 01/03/2010    | 28/02/2010|
+| Début du mois de mars bisextile     | 01/03/2010    | 29/02/2010|
+| Fin du mois de février non bisextile| 28/02/2010    | 27/02/2010|
+| Fin du mois de février bisextile    | 29/02/2010    | 28/02/2010|
+| **isLeapYears()**                       |               |           |
+| Année bisextile                     | 01/01/2016    | True      |
+| Année non bisextile                 | 01/01/2017    | False     |
+| **isvalid()**                           |               |           |
+| Date valide                         | 01/01/2017    | True      |
+| Date au format incorrect            | 12/01/2017    | False     |
+| Date invalide                       | helloWorld    | False     |
+| **compareTo()**                         |               |           |
+| Date égale                          | D1=D2         | 0         |
+| Date non égale (année inférieur)    | D1.year < D2.year | -1    |
+| Date non égale (année supérieur)    | D1.year > D2.year | 1     |
+| Date non égale (mois inférieur)     | D1.month < D2.month | -1  |
+| Date non égale (mois supérieur)     | D1.month > D2.month | 1   |
+| Date non égale (jour inférieur)     | D1.day < D2.day | -1      |
+| Date non égale (jour supérieur)     | D1.day > D2.day | 1       |
+
+
+##### Question 2 and 3
+After implementing the **Date** class, we wrote a test class for it. As seen in the course, we have a test method for an associated method of the initial class. Note that during the writing we did not write test cases for the getter and setter. After the first implementation of the tests, we obtain a coverage of 72%.  The standard is to have a coverage between 80-85%. We then add tests to reach this level of coverage.
+
+![](assets/testExos4.png "test")
+
+![](assets/coverageExos4.png "coverage score")
+##### Question 4
+We will now use PIT to get a mutation level. This level allows us to know if we can trust our tests. With a Maven project we can use this command :
+```
+mvn test-compile org pitest:pitest-maven:mutationCoverage
+```
+With our project, here is Pittest's report :
+
+![](assets/pitExos4.png "Pit's report.")
+

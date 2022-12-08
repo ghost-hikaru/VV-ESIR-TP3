@@ -40,3 +40,40 @@ Use the following steps to design the test suite:
 Use the project in [tp3-heap](../code/tp3-heap) to complete this exercise.
 
 ## Answer
+
+### Answer of exercice 5
+##### Question 1
+
+| Cas                           | Input         | Output    |  
+| -------------                 |:-------------:|:---------:|
+| **push()**                    |               |           |
+| Add in empty list             | push(elt)     | No error  |
+| Add in full list              | push(elt)     | Copy and size*2 |
+| Add in list                   | push(elt)     | No error  |
+| **pop()**                     |               |           |
+| Delete in empty list          | pop()         |return null|
+| Delete in full list           | pop()         | return elt|
+| Delete in list                | pop()         | return elt|
+| **peek()**                    |               |           |
+| Give first elt in a list      | peek()        | return elt|
+| Give first elt in a empty list| peek()        | return null|
+| **count()**                   |               |           |
+| Give valid size               | assertEqual   | return true |
+| Give invalid size             | assertEqual   | return false |
+
+
+#### Question 2 and 3
+
+After implementing the **BinaryHeap** class, we wrote a test class for it. As seen in the course, we have a test method for an associated method of the initial class. After the first implementation of the tests, we obtain a coverage of 87%.  The standard is to have a coverage between 80-85%. 
+
+![](assets/testExos5.png "Test")
+
+![](assets/coverageExos5.png "coverage score")
+##### Question 4
+We will now use PIT to get a mutation level. This level allows us to know if we can trust our tests. With a Maven project we can use this command :
+```
+mvn test-compile org.pitest:pitest-maven:mutationCoverage
+```
+With our project, here is Pittest's report :
+
+![](assets/pitExos5.png "Pit's report")
